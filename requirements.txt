@@ -1,0 +1,11 @@
+Flask==2.3.2
+python-dotenv==1.0.0
+PyMuPDF
+requests==2.31.0
+werkzeug==2.3.6
+Flask-Session
+langchain
+FPDF
+json_repair
+pytesseract
+Pillow

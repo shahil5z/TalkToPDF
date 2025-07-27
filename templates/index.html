@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Summarizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle position-fixed top-0 end-0 m-3">
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <h1 class="mt-5 text-center">PDF Summarizer</h1>
+        <p class="text-center lead">Upload a PDF file to get a concise summary powered by AI.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="card mt-4 shadow-sm animate__animated animate__fadeIn">
+            <div class="card-body">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Select PDF File</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".pdf" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="summary_length" class="form-label">Summary Length</label>
+                        <select class="form-select" id="summary_length" name="summary_length">
+                            <option value="short">Short</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="detailed">Detailed</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="summary_format" class="form-label">Summary Format</label>
+                        <select class="form-select" id="summary_format" name="summary_format">
+                            <option value="structured" selected>Structured</option>
+                            <option value="paragraph">Paragraph</option>
+                            <option value="bullet_points">Bullet Points</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Summarize</button>
+                    <div class="d-flex justify-content-center mt-3">
+                        <div class="spinner-border text-primary d-none" id="loadingSpinner" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
