@@ -6,21 +6,21 @@ A Flask-based web application that allows users to upload PDF files and get AI-g
 
 ## 🚀 Features
 
-- 📄 **Upload any PDF** and extract text automatically
-- 🔍 **Choose summary type**: Overview, Bullet Points, Structured
-- 🧠 **Chat with your PDF** using context-aware AI
-- 🌑 **Dark/Light mode** toggle with persistent preference
-- 🧾 **Download the summary** as a PDF
-- 🔁 **Automatic retry with exponential backoff** for API failures
-- 🧼 **Clean and intuitive UI** using Bootstrap
-- 🔡 **OCR support** for image-based or scanned PDFs
+-  **Upload any PDF** and extract text automatically
+-  **Choose summary type**: Overview, Bullet Points, Structured
+-  **Chat with your PDF** using context-aware AI
+-  **Dark/Light mode** toggle with persistent preference
+-  **Download the summary** as a PDF
+-  **Automatic retry with exponential backoff** for API failures
+-  **Clean and intuitive UI** using Bootstrap
+-  **OCR support** for image-based or scanned PDFs
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Backend**: Python, Flask
 - **Frontend**: HTML, CSS, JavaScript (Bootstrap)
 - **PDF Processing**: PyMuPDF, pytesseract, PIL
-- **AI Summarization**: GROQ API (LLAMA 3-8b)
+- **AI Summarization**: GROQ API
 - **PDF Generation**: FPDF
